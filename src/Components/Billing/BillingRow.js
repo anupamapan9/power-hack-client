@@ -9,7 +9,7 @@ const BillingRow = ({ add, setAdd, billing }) => {
     return (<>
         <tr class="border-b odd:bg-white even:bg-gray-50 font-medium text-gray-600">
             <td class="px-6 py-4 ">
-                {_id}
+                {_id ? _id : "Generating Id..."}
             </td>
             <td class="px-6 py-4">
                 {fullName}
