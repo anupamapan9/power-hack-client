@@ -9,7 +9,6 @@ const useBilling = (page) => {
                 setBillings(result.result)
             })
     }, [page])
-    console.log(billings)
     return [billings]
 }
 export default useBilling;
