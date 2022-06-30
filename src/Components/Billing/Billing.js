@@ -8,8 +8,7 @@ const Billing = () => {
     return (
         <>
             <AddBillingHeader add={add} setAdd={setAdd} />
-            <BillingTable />
-            {/* <BillingModal /> */}
+            <BillingTable add={add} setAdd={setAdd} />
         </>
     );
 };
