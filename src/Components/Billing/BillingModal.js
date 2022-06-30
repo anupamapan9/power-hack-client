@@ -11,7 +11,7 @@ const BillingModal = ({ add, setAdd }) => {
     return (
         <div>
             {/* <!-- Put this part before </body> tag --> */}
-            <input type="checkbox" id="my-modal" class="modal-toggle" />
+            <input type="checkbox" id="add-modal" class="modal-toggle" />
             <div class="modal">
                 <div class="modal-box rounded-none">
                     <h1 className='text-center font-semibold text-2xl'>Add / Update Bill</h1>

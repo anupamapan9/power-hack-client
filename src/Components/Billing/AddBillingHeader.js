@@ -10,7 +10,7 @@ const AddBillingHeader = ({ add, setAdd }) => {
                 </div>
                 <div>
                     {/* <label class="btn modal-button">open modal</label> */}
-                    <label for="my-modal" className='text-white bg-green-900 px-2 py-1' onClick={() => setAdd(!add)}>Add New Bill</label>
+                    <label for="add-modal" className='text-white bg-green-900 px-2 py-1' onClick={() => setAdd(!add)}>Add New Bill</label>
                 </div>
             </div>
             {
