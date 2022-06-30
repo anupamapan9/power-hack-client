@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
+import useBilling from '../../Hooks/useBilling';
 import BillingRow from './BillingRow';
 
 const BillingTable = ({ add, setAdd }) => {
+    const [billings] = useBilling()
 
     return (
 
@@ -31,7 +33,10 @@ const BillingTable = ({ add, setAdd }) => {
                     </tr>
                 </thead>
                 <tbody>
-                    <BillingRow add={add} setAdd={setAdd} />
+                    {
+                        billings.map(billing => <BillingRow billing={billing} key={billing._id} add={add} setAdd={setAdd} />)
+                    }
+
 
 
                 </tbody>
