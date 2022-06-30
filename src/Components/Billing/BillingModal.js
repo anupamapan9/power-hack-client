@@ -1,6 +1,6 @@
 import React from 'react';
 
-const BillingModal = () => {
+const BillingModal = ({ add, setAdd }) => {
 
 
     const handelAddBilling = (e) => {
@@ -13,7 +13,7 @@ const BillingModal = () => {
             {/* <!-- Put this part before </body> tag --> */}
             <input type="checkbox" id="my-modal" class="modal-toggle" />
             <div class="modal">
-                <div class="modal-box">
+                <div class="modal-box rounded-none py-10">
 
 
 
@@ -52,7 +52,11 @@ const BillingModal = () => {
                                 <label for="floating_amount" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Paid amount</label>
                             </div>
                         </div>
-                        <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
+                        <div className='flex justify-between'>
+                            <button type="submit" class="text-white bg-green-900 hover:bg-green-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-sm w-full sm:w-auto px-5 py-2.5 text-center " onClick={() => setAdd(!add)}>Submit</button>
+                            <button class="text-white bg-gray-700 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium text-sm w-full sm:w-auto px-5 py-2.5 text-center " onClick={() => setAdd(!add)}> Cancel</button>
+                        </div>
+
                     </form>
 
 
