@@ -8,7 +8,8 @@ const AddBillingHeader = () => {
                     <form className='inline pl-5'> <input type="text" name='searched' className='border border-gray-500 bg-transparent focus:outline-0 placeholder:text-black px-2' placeholder='Search...' /></form>
                 </div>
                 <div>
-                    <button className='text-white bg-green-900 px-2 py-1'>Add New Bill</button>
+                    {/* <label class="btn modal-button">open modal</label> */}
+                    <label for="my-modal" className='text-white bg-green-900 px-2 py-1'>Add New Bill</label>
                 </div>
             </div>
         </section>

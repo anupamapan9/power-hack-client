@@ -1,5 +1,6 @@
 import React from 'react';
 import AddBillingHeader from './AddBillingHeader';
+import BillingModal from './BillingModal';
 import BillingTable from './BillingTable';
 
 const Billing = () => {
@@ -7,6 +8,7 @@ const Billing = () => {
         <>
             <AddBillingHeader />
             <BillingTable />
+            <BillingModal />
         </>
     );
 };
