@@ -4,7 +4,6 @@ import DeleteBillModal from './DeleteBillModal';
 
 const BillingRow = ({ add, setAdd, billing }) => {
     const [confirmDelete, setConfirmDelete] = useState(false)
-    console.log(billing)
     const { email, amount, phone, fullName, _id } = billing;
     return (<>
         <tr class="border-b odd:bg-white even:bg-gray-50 font-medium text-gray-600">
@@ -35,6 +34,7 @@ const BillingRow = ({ add, setAdd, billing }) => {
         {
             confirmDelete && <DeleteBillModal setConfirmDelete={setConfirmDelete} confirmDelete={confirmDelete} />
         }
+
     </>
 
     );

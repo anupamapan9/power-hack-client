@@ -1,13 +1,15 @@
 import { useEffect, useState } from "react";
 
-const useBilling = () => {
+const useBilling = (page) => {
     const [billings, setBillings] = useState([])
     useEffect(() => {
-        fetch('http://localhost:5000/billing-list')
+        fetch(`http://localhost:5000/billing-list?page=${page}`)
             .then(res => res.json())
-            .then(result => setBillings(result))
-    }, [])
-
+            .then(result => {
+                setBillings(result.result)
+            })
+    }, [page])
+    console.log(billings)
     return [billings]
 }
 export default useBilling;
