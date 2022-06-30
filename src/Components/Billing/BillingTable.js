@@ -1,7 +1,7 @@
 import React from 'react';
 import BillingRow from './BillingRow';
 
-const BillingTable = ({ add, setAdd, setCurrentPage, currentPage, pages, billings, newAdded, loading }) => {
+const BillingTable = ({ setCurrentPage, currentPage, pages, billings, newAdded, loading, refetch, setRefetch }) => {
 
 
     const temporary = [...billings, newAdded]
@@ -35,11 +35,12 @@ const BillingTable = ({ add, setAdd, setCurrentPage, currentPage, pages, billing
                     <tbody>
                         {
                             !loading &&
-                            billings?.map(billing => <BillingRow billing={billing} key={billing._id} add={add} setAdd={setAdd} />)
+                            billings?.map(billing => <BillingRow billing={billing} key={billing._id} setRefetch={setRefetch}
+                                refetch={refetch} />)
 
                         }
                         {
-                            loading && temporary?.map(billing => <BillingRow billing={billing} key={billing._id} add={add} setAdd={setAdd} />)
+                            loading && temporary?.map(billing => <BillingRow billing={billing} key={billing._id} />)
                         }
 
 

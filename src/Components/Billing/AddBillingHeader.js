@@ -2,6 +2,7 @@ import React from 'react';
 import BillingModal from './BillingModal';
 
 const AddBillingHeader = ({ add, setAdd, handelSubmit }) => {
+    const _id = 1;
     return (
         <section className='px-20 mt-10'>
             <div className='flex justify-between items-center bg-gray-300 px-10 py-2'>
@@ -14,7 +15,11 @@ const AddBillingHeader = ({ add, setAdd, handelSubmit }) => {
                 </div>
             </div>
             {
-                add && <BillingModal add={add} setAdd={setAdd} handelSubmit={handelSubmit} />
+                add && <BillingModal
+                    add={add}
+                    setAdd={setAdd}
+                    handelSubmit={handelSubmit}
+                    id={_id} />
             }
         </section>
     );

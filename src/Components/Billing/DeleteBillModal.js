@@ -1,6 +1,7 @@
 import React from 'react';
 
-const DeleteBillModal = ({ confirmDelete, setConfirmDelete, id }) => {
+const DeleteBillModal = ({ confirmDelete, setConfirmDelete, id, refetch, setRefetch }) => {
+    console.log('delete')
     const handelDelete = (id) => {
         fetch(`http://localhost:5000/delete-billing/${id}`, {
             method: 'DELETE',
@@ -11,8 +12,8 @@ const DeleteBillModal = ({ confirmDelete, setConfirmDelete, id }) => {
             .then(res => res.json())
             .then(data => {
                 if (data.deletedCount > 0) {
+                    setRefetch(!refetch)
 
-                    console.log(data)
                 }
             })
         setConfirmDelete(!confirmDelete)
