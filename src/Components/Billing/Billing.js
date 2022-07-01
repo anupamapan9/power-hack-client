@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Navigate, useNavigate } from 'react-router-dom';
 import useBilling from '../../Hooks/useBilling';
 import AddBillingHeader from './AddBillingHeader';
 import BillingTable from './BillingTable';
@@ -12,7 +13,7 @@ const Billing = ({ count, setCount }) => {
     const pages = Math.ceil(count / 10);
     const [newAdded, setNewAdded] = useState({})
     const [loading, setLoading] = useState(false);
-
+    const navigate = useNavigate()
 
 
     const handelSubmit = (e) => {
@@ -36,7 +37,13 @@ const Billing = ({ count, setCount }) => {
             body: JSON.stringify(newBill),
 
         })
-            .then(response => response.json())
+            .then(res => {
+                if (res.status === 401 || res.status === 403) {
+                    navigate('/login');
+                    localStorage.removeItem('accessToken');
+                }
+                return res.json()
+            })
             .then(data => {
 
                 if (data.acknowledged) {

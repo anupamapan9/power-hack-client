@@ -1,9 +1,11 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
 const Login = () => {
+    const navigate = useNavigate()
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
     const loginUser = e => {
         e.preventDefault()
-
         const email = e.target.floating_email.value
         const password = e.target.floating_password.value;
         const user = { email, password };
@@ -22,6 +24,7 @@ const Login = () => {
                 if (data.token) {
                     const accessToken = data.token;
                     localStorage.setItem('accessToken', accessToken);
+                    navigate(from, { replace: true });
                 }
                 else {
                     console.log(data)
