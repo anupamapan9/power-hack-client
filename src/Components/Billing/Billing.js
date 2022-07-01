@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { Navigate, useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import useBilling from '../../Hooks/useBilling';
 import AddBillingHeader from './AddBillingHeader';
 import BillingTable from './BillingTable';
@@ -8,14 +8,14 @@ const Billing = ({ count, setCount, refetch, setRefetch }) => {
 
     const [add, setAdd] = useState(false)
     const [currentPage, setCurrentPage] = useState(0)
-    const [billings] = useBilling(currentPage, refetch)
-    console.log(count)
+
+    const [text, setText] = useState('')
     const pages = Math.ceil(count / 10);
     const [newAdded, setNewAdded] = useState({})
     const [loading, setLoading] = useState(false);
     const navigate = useNavigate()
-
-
+    console.log(text)
+    const [billings] = useBilling(currentPage, text, refetch)
     const handelSubmit = (e) => {
         e.preventDefault()
         setLoading(true)
@@ -62,6 +62,7 @@ const Billing = ({ count, setCount, refetch, setRefetch }) => {
                 add={add}
                 setAdd={setAdd}
                 handelSubmit={handelSubmit}
+                setText={setText}
 
 
             />
