@@ -11,23 +11,25 @@ import { ToastContainer } from 'react-toastify';
 function App() {
   const [count, setCount] = useState(0)
   const [refetch, setRefetch] = useState(0)
+  const user = localStorage.getItem('accessToken')
   useEffect(() => {
     fetch('http://localhost:5000/billingCount')
       .then(res => res.json())
       .then(result => {
         setCount(result.count)
       })
-  }, [refetch])
+  }, [refetch, user])
   return (
     <main>
       <ToastContainer />
-      <Header count={count} />
+      <Header count={count} user={user} />
       <Routes>
-        <Route path='/' element={<RequireAuth> <Billing
-          count={count}
-          setCount={setCount}
-          refetch={refetch}
-          setRefetch={setRefetch} /></RequireAuth>}></Route>
+        <Route path='/' element={<RequireAuth>
+          <Billing
+            count={count}
+            setCount={setCount}
+            refetch={refetch}
+            setRefetch={setRefetch} /></RequireAuth>}></Route>
         <Route path='/register' element={<Register />}></Route>
         <Route path='/login' element={<Login />}></Route>
       </Routes>
