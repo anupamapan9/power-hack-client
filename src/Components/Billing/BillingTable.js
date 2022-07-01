@@ -40,10 +40,8 @@ const BillingTable = ({ setCurrentPage, currentPage, pages, billings, newAdded, 
 
                         }
                         {
-                            loading && temporary?.map(billing => <BillingRow billing={billing} key={billing._id} />)
+                            loading && temporary?.reverse().map(billing => <BillingRow billing={billing} key={billing._id} />)
                         }
-
-
                     </tbody>
                 </table>
             </div>
