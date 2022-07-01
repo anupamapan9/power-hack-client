@@ -21,9 +21,9 @@ const DeleteBillModal = ({ confirmDelete, setConfirmDelete, id, refetch, setRefe
     return (
         <div>
             {/* <!-- Put this part before </body> tag --> */}
-            <input type="checkbox" id="delete-modal" class="modal-toggle" />
-            <div class="modal">
-                <div class="modal-box rounded-none">
+            <input type="checkbox" id="delete-modal" className="modal-toggle" />
+            <div className="modal">
+                <div className="modal-box rounded-none">
                     <h1 className='text-center text-error font-semibold text-2xl'> Warning!!!</h1>
                     <p className='font-semibold my-10'>Are you sure want to delete <span className='font-black text-error'> {id}</span> billing Info?</p>
                     <div className='flex justify-between'>
