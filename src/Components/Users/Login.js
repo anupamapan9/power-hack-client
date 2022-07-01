@@ -18,7 +18,15 @@ const Login = () => {
         })
             .then(response => response.json())
             .then(data => {
-                console.log(data)
+
+                if (data.token) {
+                    const accessToken = data.token;
+                    localStorage.setItem('accessToken', accessToken);
+                }
+                else {
+                    console.log(data)
+                }
+
             })
     }
     return (
@@ -38,8 +46,6 @@ const Login = () => {
                     <input type="submit" value="Login" className="text-white bg-green-900 hover:bg-green-800 focus:ring-4 focus:outline-none  font-medium text-sm w-full sm:w-auto px-5 py-2.5 text-center " />
                 </form>
             </div>
-
-
         </section>
     );
 };
