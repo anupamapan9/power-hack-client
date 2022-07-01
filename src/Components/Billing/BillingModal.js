@@ -1,6 +1,6 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
-
+import { toast } from 'react-toastify';
 const BillingModal = ({ add, setAdd, handelSubmit, setUpdate, update, id, refetch, setRefetch }) => {
     const navigate = useNavigate()
     const handelUpdate = (event) => {
@@ -23,6 +23,7 @@ const BillingModal = ({ add, setAdd, handelSubmit, setUpdate, update, id, refetc
                 if (res.status === 401 || res.status === 403) {
                     navigate('/login');
                     localStorage.removeItem('accessToken');
+                    toast.error("Forbidden")
                 }
                 return res.json()
             })

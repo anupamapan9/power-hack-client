@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify';
 const Login = () => {
     const navigate = useNavigate()
     const location = useLocation();
@@ -25,9 +26,11 @@ const Login = () => {
                     const accessToken = data.token;
                     localStorage.setItem('accessToken', accessToken);
                     navigate(from, { replace: true });
+                    toast.success('Logged In')
                 }
                 else {
                     console.log(data)
+                    toast.error(data.message)
                 }
 
             })

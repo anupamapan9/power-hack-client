@@ -1,15 +1,22 @@
 import React from 'react';
 import BillingModal from './BillingModal';
 import { AiOutlineReload } from 'react-icons/ai'
+import { GoSignOut } from 'react-icons/go'
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 const AddBillingHeader = ({ add, setAdd, handelSubmit, setText }) => {
     const _id = 1;
-
+    const navigate = useNavigate()
     const handelSearch = e => {
         e.preventDefault()
         const text = e.target.searched.value;
         setText(text)
     }
-
+    const signOut = () => {
+        localStorage.removeItem('accessToken');
+        toast.success('Log out')
+        navigate('/')
+    }
     return (
         <section className='px-20 mt-10'>
             <div className='flex justify-between items-center bg-gray-300 px-10 py-2'>
@@ -23,9 +30,10 @@ const AddBillingHeader = ({ add, setAdd, handelSubmit, setText }) => {
                         <AiOutlineReload />
                     </button>
                 </div>
-                <div>
+                <div className='flex items-center'>
                     {/* <label className="btn modal-button">open modal</label> */}
                     <label for="add-modal" className='text-white bg-green-900 px-2 py-1' onClick={() => setAdd(!add)}>Add New Bill</label>
+                    <button className='ml-5 text-2xl text-red-600' onClick={signOut}><GoSignOut /></button>
                 </div>
             </div>
             {

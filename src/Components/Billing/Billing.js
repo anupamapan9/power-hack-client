@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import useBilling from '../../Hooks/useBilling';
 import AddBillingHeader from './AddBillingHeader';
 import BillingTable from './BillingTable';
-
+import { toast } from 'react-toastify';
 const Billing = ({ count, setCount, refetch, setRefetch }) => {
 
     const [add, setAdd] = useState(false)
@@ -41,6 +41,8 @@ const Billing = ({ count, setCount, refetch, setRefetch }) => {
                 if (res.status === 401 || res.status === 403) {
                     navigate('/login');
                     localStorage.removeItem('accessToken');
+
+                    toast.error("Logged out, Login Again!!")
                 }
                 return res.json()
             })

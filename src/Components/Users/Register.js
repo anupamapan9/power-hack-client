@@ -1,6 +1,10 @@
 import React from 'react';
-import { Link } from 'react-router-dom'
+import { Link, useLocation, useNavigate } from 'react-router-dom'
+import { toast } from 'react-toastify';
 const Register = () => {
+    const navigate = useNavigate()
+    const location = useLocation();
+    const from = location.state?.from?.pathname || "/";
     const createNewUser = e => {
         e.preventDefault()
 
@@ -18,7 +22,17 @@ const Register = () => {
         })
             .then(response => response.json())
             .then(data => {
-                console.log(data)
+
+                if (data.acknowledged) {
+                    toast.success('Please Login with your email and pass')
+                    navigate(from, { replace: true });
+                    e.target.reset()
+                }
+                else {
+                    toast.error(data.message)
+                    e.target.reset()
+                    return
+                }
             })
     }
     return (

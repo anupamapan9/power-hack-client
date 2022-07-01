@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
+import 'react-toastify/dist/ReactToastify.css';
 import './App.css';
 import Billing from './Components/Billing/Billing';
 import Header from './Components/Common/Header';
 import RequireAuth from './Components/Common/RequireAuth';
 import Login from './Components/Users/Login';
 import Register from './Components/Users/Register';
-
+import { ToastContainer } from 'react-toastify';
 function App() {
   const [count, setCount] = useState(0)
   const [refetch, setRefetch] = useState(0)
@@ -19,6 +20,7 @@ function App() {
   }, [refetch])
   return (
     <main>
+      <ToastContainer />
       <Header count={count} />
       <Routes>
         <Route path='/' element={<RequireAuth> <Billing
