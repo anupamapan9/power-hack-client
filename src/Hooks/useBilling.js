@@ -25,7 +25,7 @@ const useBilling = (page, text, refetch) => {
             .then(result => {
                 setBillings(result.result)
             })
-    }, [page, text, refetch])
+    }, [page, text, refetch, navigate])
     return [billings]
 }
 export default useBilling;

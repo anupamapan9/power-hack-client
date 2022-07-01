@@ -4,8 +4,8 @@ import useBilling from '../../Hooks/useBilling';
 import AddBillingHeader from './AddBillingHeader';
 import BillingTable from './BillingTable';
 
-const Billing = ({ count, setCount }) => {
-    const [refetch, setRefetch] = useState(0)
+const Billing = ({ count, setCount, refetch, setRefetch }) => {
+
     const [add, setAdd] = useState(false)
     const [currentPage, setCurrentPage] = useState(0)
     const [billings] = useBilling(currentPage, refetch)
